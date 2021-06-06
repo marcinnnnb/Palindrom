@@ -1,0 +1,18 @@
+REPORT zmba_palindrom.
+
+PARAMETERS: pa_wyraz TYPE c LENGTH 30 OBLIGATORY. 
+
+DATA: lv_rwyraz TYPE c LENGTH 30.
+
+CALL FUNCTION ‘STRING_REVERSE’ 
+  EXPORTING
+    string = pa_wyraz
+    lang = sy-langu 
+  IMPORTING
+    rstring = lv_rwyraz.
+    
+IF pa_wyraz = lv_wyraz.
+  WRITE: ‘Podany wyraz jest palindromem / This word is a palindrome’.
+ELSE.
+  WRITE: ‘Podany wyraz nie jest palindromem / This word is not a palindrome’.
+ENDIF.
